@@ -1,12 +1,12 @@
-import Navbar from "./components/Navbar";
+import { Routes, Route, Navigate } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
 
+import Navbar from "./components/Navbar";
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignupPage';
 import LogInPage from './pages/LogInPage';
 import SettingsPage from './pages/SettingsPage';
 import ProfilePage from './pages/ProfilePage';
-
-import { Routes, Route, Navigate } from 'react-router';
 
 import { useAuthStore } from './store/useAuthStore';
 import { useEffect } from "react";
@@ -49,6 +49,8 @@ const App = () => {
           element={(authUser) ? < ProfilePage /> : <Navigate to="/login" />}
         ></Route>
       </Routes>
+
+      <Toaster />
     </div >
   );
 };

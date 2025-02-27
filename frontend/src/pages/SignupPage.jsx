@@ -23,6 +23,7 @@ const SignupPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signup(formData);
   }
 
   return (
@@ -52,8 +53,6 @@ const SignupPage = () => {
                 type="input"
                 required
                 placeholder="John Doe"
-                pattern="[A-Za-z][A-Za-z0-9\-]*"
-                title="Only letters, numbers or dash"
                 name='fullName'
                 value={formData.fullName}
                 onChange={handleChange}
@@ -90,7 +89,7 @@ const SignupPage = () => {
                 type={(showPassword) ? "text" : "password"}
                 required
                 placeholder="Password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                minLength={6}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
@@ -111,7 +110,7 @@ const SignupPage = () => {
             </label>
 
             <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp}>
-              {(true) ? (
+              {(isSigningUp) ? (
                 <>
                   <span className="loading loading-spinner loading-xs"></span>
                   Loading...
