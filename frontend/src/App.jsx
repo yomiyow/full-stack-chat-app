@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 import Navbar from "./components/Navbar";
 import HomePage from './pages/HomePage';
@@ -13,8 +13,10 @@ import { useThemeStore } from './store/useThemeStore';
 import { useEffect } from "react";
 
 const App = () => {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
+
+  console.log(onlineUsers);
 
   useEffect(() => {
     checkAuth();

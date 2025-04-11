@@ -32,4 +32,4 @@ export const protectRoute = async (req, res, next) => {
       { message: 'Internal Server Error', error: error.message }
     );
   }
-}
+};
