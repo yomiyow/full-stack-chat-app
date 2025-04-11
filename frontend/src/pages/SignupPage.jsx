@@ -8,7 +8,7 @@ const formInitialState = {
   fullName: '',
   email: '',
   password: ''
-}
+};
 
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,13 +18,12 @@ const SignupPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signup(formData);
-  }
+  };
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
@@ -52,7 +51,7 @@ const SignupPage = () => {
               <input
                 type="input"
                 required
-                placeholder="John Doe"
+                placeholder="Romeo Quinones"
                 name='fullName'
                 value={formData.fullName}
                 onChange={handleChange}
